@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+/* Algemene reset en basis */
 * {
     margin: 0;
     padding: 0;
@@ -13,52 +14,62 @@ body {
 }
 
 .container {
-    margin: 0 auto;
     width: 90%;
     max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
 }
 
+/* Header */
 .header h1 {
     text-transform: uppercase;
+    font-size: 2.5rem;
     margin: 2rem 0;
+    color: #000;
 }
 
+/* Image container */
 .image-container {
-    clip-path: circle(50% at 50% 50%);
-    background-image: url('../img/profile1.jpg'); /* standaard desktop */
-    background-size: cover;
-    background-position: center;
     width: 80%;
     max-width: 450px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     margin: 2rem auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    clip-path: circle(50% at 50% 50%);
 }
 
-/* Navigation styles */
+/* Navigation */
 .navigation ul {
     list-style: none;
     padding: 0;
+    margin: 2rem 0;
 }
 
 .navigation ul li {
+    display: inline-block;
+    padding: 1rem 2rem;
     border: 1px solid #333;
     border-radius: 5px;
-    display: inline-block;
+    margin: 0.5rem;
     font-size: 1.2rem;
-    padding: 0.75rem 1rem;
-    margin: 1rem;
-    min-width: 120px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #333;
 }
 
 /* Main content */
 .main-container {
-    margin: 2rem auto;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .main-container div {
-    margin-bottom: 2rem;
     padding: 1rem;
     background-color: #fff;
     border-radius: 10px;
@@ -66,20 +77,19 @@ body {
 }
 
 .main-container h1 {
-    margin-bottom: 1rem;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .main-container p {
-    text-align: justify;
     font-size: 1rem;
+    text-align: justify;
 }
 
 /* Footer */
 .footer {
-    font-size: 1rem;
     padding: 2rem;
-    margin-top: 2rem;
+    font-size: 1rem;
 }
 
 .footer ul {
@@ -94,63 +104,54 @@ body {
 }
 
 .footer ul a {
-    color: #777;
     text-decoration: none;
+    color: #777;
 }
 
-/* --- MEDIA QUERIES --- */
+/* ====== MEDIA QUERIES ====== */
 
 /* Mobiel - ≤480px */
 @media (max-width: 480px) {
     body {
         background-color: #f0f8ff;
-        color: #333;
+    }
+
+    .image-container {
+        background-image: url('../img/profile1.jpg');
+        max-width: 250px;
     }
 
     .navigation ul li {
         display: block;
         width: 100%;
         margin: 0.5rem 0;
-        border-color: #555;
     }
 
-    .main-container h1 {
-        font-size: 1.3rem;
+    .main-container {
+        grid-template-columns: 1fr;
     }
-
-    .main-container p {
-        font-size: 0.9rem;
-    }
-
-    .image-container {
-        background-image: url('../img/profile2.jpg');
-        max-width: 250px;
-    }
+    
 }
 
 /* Tablet - 481px tot 768px */
 @media (min-width: 481px) and (max-width: 768px) {
     body {
         background-color: #fff8dc;
-        color: #222;
+    }
+
+    .image-container {
+        background-image: url('../img/profile2.jpg');
+        max-width: 300px;
     }
 
     .navigation ul li {
         display: inline-block;
-        width: auto;
         margin: 0.5rem 1rem;
-        border-color: #333;
     }
 
     .main-container {
-        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-    }
-
-    .image-container {
-        background-image: url('../img/profile3.jpg');
-        max-width: 300px;
     }
 }
 
@@ -158,23 +159,21 @@ body {
 @media (min-width: 769px) and (max-width: 1199px) {
     body {
         background-color: #f5f5f5;
-        color: #111;
+    }
+
+    .image-container {
+        background-image: url('../img/profile3.jpg');
+        max-width: 400px;
     }
 
     .navigation ul li {
-        font-size: 1.2rem;
         padding: 1rem 2rem;
-        border-color: #222;
+        font-size: 1.2rem;
     }
 
     .main-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-    }
-
-    .image-container {
-        background-image: url('../img/profile4.jpg');
-        max-width: 400px;
     }
 }
 
@@ -182,18 +181,11 @@ body {
 @media (min-width: 1200px) {
     body {
         background-color: #ffffff;
-        color: #000;
     }
 
-    .navigation ul li {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-        border-color: #000;
-    }
-
-    .main-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+    .image-container {
+        background-image: url('../img/profile4.jpg');
+        max-width: 450px;
     }
 
     .header h1 {
@@ -201,8 +193,107 @@ body {
         margin: 3rem 0;
     }
 
-    .image-container {
-        background-image: url('../img/profile1.jpg');
-        max-width: 450px;
+    .navigation ul li {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+    }
+
+    .main-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+/* Mobiel - ≤480px */
+@media (max-width: 480px) {
+    .header h1,
+    .main-container h1,
+    .main-container p,
+    .navigation ul li a,
+    .footer,
+    .footer a {
+        color: yellow; /* Tekst geel op mobiel */
+    }
+
+    .navigation ul li {
+        border: 1px solid orange; /* Border kleur mobiel */
+    }
+}
+
+/* Tablet - 481px tot 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header h1,
+    .main-container h1,
+    .main-container p,
+    .navigation ul li a,
+    .footer,
+    .footer a {
+        color: green; /* Tekst groen op tablet */
+    }
+
+    .navigation ul li {
+        border: 1px solid darkgreen; /* Border kleur tablet */
+    }
+}
+
+/* Desktop - ≥769px */
+@media (min-width: 769px) {
+    .header h1,
+    .main-container h1,
+    .main-container p,
+    .navigation ul li a,
+    .footer,
+    .footer a {
+        color: blue; /* Tekst blauw op desktop */
+    }
+
+    .navigation ul li {
+        border: 1px solid navy; /* Border kleur desktop */
+    }
+}
+
+/* ================== Navigatiebutton achtergrond per scherm ================== */
+
+/* 1️⃣ Mobiel - ≤480px */
+@media (max-width: 480px) {
+    .navigation ul li {
+        background-color: #eadf05; /* donkergrijs */
+    }
+
+    .navigation ul li a {
+        color: #FAEA04; /* geel voor tekst */
+    }
+}
+
+/* 2️⃣ Tablet - 481px tot 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navigation ul li {
+        background-color: #a3f7bf; /* lichtgroen */
+    }
+
+    .navigation ul li a {
+        color: #11F27A; /* groene tekst */
+    }
+}
+
+/* 3️⃣ Small desktop - 769px tot 1199px */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .navigation ul li {
+        background-color: #c3c3ff; /* lichtblauw */
+    }
+
+    .navigation ul li a {
+        color: #3815E8; /* blauwe tekst */
+    }
+}
+
+/* 4️⃣ Large desktop - ≥1200px */
+@media (min-width: 1200px) {
+    .navigation ul li {
+        background-color: #ffe5e5; /* lichtrood/roze */
+    }
+
+    .navigation ul li a {
+        color: red; /* rode tekst */
     }
 }

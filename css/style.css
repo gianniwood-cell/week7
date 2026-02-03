@@ -26,15 +26,14 @@ body {
 
 .image-container {
     clip-path: circle(50% at 50% 50%);
-    background-image: url('../img/profile-large.jpg'); /* standaard afbeelding voor desktop */
+    background-image: url('../img/profile1.jpg'); /* standaard desktop */
     background-size: cover;
     background-position: center;
-    width: 80%;         /* schaal mee met container */
-    max-width: 450px;   /* maximale grootte */
-    aspect-ratio: 1/1;  /* hoogte = breedte, perfect rond */
+    width: 80%;
+    max-width: 450px;
+    aspect-ratio: 1/1;
     margin: 2rem auto;
 }
-
 
 /* Navigation styles */
 .navigation ul {
@@ -101,17 +100,18 @@ body {
 
 /* --- MEDIA QUERIES --- */
 
-/* Small screens - mobile (480px and up) */
+/* Mobiel - ≤480px */
 @media (max-width: 480px) {
-    .image-container {
-        height: 200px;
-        width: 200px;
+    body {
+        background-color: #f0f8ff;
+        color: #333;
     }
 
     .navigation ul li {
         display: block;
         width: 100%;
         margin: 0.5rem 0;
+        border-color: #555;
     }
 
     .main-container h1 {
@@ -121,112 +121,10 @@ body {
     .main-container p {
         font-size: 0.9rem;
     }
-}
-
-/* Tablets (768px and up) */
-@media (min-width: 768px) {
-    .container {
-        width: 85%;
-    }
 
     .image-container {
-        height: 300px;
-        width: 300px;
-    }
-
-    .navigation ul li {
-        display: inline-block;
-        width: auto;
-        margin: 0.5rem 1rem;
-    }
-
-    .main-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-}
-
-/* Small desktops (1024px and up) */
-@media (min-width: 1024px) {
-    .container {
-        width: 80%;
-    }
-
-    .image-container {
-        height: 350px;
-        width: 350px;
-    }
-
-    .main-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .navigation ul li {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-    }
-}
-
-/* Large desktops (1200px and up) */
-@media (min-width: 1200px) {
-    .container {
-        width: 75%;
-    }
-
-    .image-container {
-        height: 450px;
-        width: 450px;
-    }
-
-    .main-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
-    }
-
-    .navigation ul li {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-    }
-
-    .header h1 {
-        font-size: 3rem;
-        margin: 3rem 0;
-    }
-}
-
-/* Mobiel - 480px en kleiner */
-@media (max-width: 480px) {
-    .image-container {
-        background-image: url('../img/profile2.jpg'); /* kleine afbeelding voor mobiel */
-        max-width: 250px; /* past beter op klein scherm */
-    }
-}
-
-/* Tablet - 481px tot 768px */
-@media (min-width: 481px) and (max-width: 768px) {
-    .image-container {
-        background-image: url('../img/profile3.jpg'); /* middelgrote afbeelding */
-        max-width: 300px;
-    }
-}
-
-/* Desktop - 1024px en hoger */
-@media (min-width: 1024px) {
-    .image-container {
-        background-image: url('../img/profile4.jpg'); /* grote afbeelding voor desktop */
-        max-width: 450px;
-    }
-}
-
-/* Mobiel - 480px en kleiner */
-@media (max-width: 480px) {
-    body {
-        background-color: #f0f8ff;
-        color: #333;
-    }
-    .navigation ul li {
-        border-color: #555;
+        background-image: url('../img/profile2.jpg');
+        max-width: 250px;
     }
 }
 
@@ -236,29 +134,75 @@ body {
         background-color: #fff8dc;
         color: #222;
     }
+
     .navigation ul li {
+        display: inline-block;
+        width: auto;
+        margin: 0.5rem 1rem;
         border-color: #333;
+    }
+
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .image-container {
+        background-image: url('../img/profile3.jpg');
+        max-width: 300px;
     }
 }
 
-/* Small desktop - 769px tot 1023px */
-@media (min-width: 769px) and (max-width: 1023px) {
+/* Small desktop - 769px tot 1199px */
+@media (min-width: 769px) and (max-width: 1199px) {
     body {
         background-color: #f5f5f5;
         color: #111;
     }
+
     .navigation ul li {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
         border-color: #222;
+    }
+
+    .main-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .image-container {
+        background-image: url('../img/profile4.jpg');
+        max-width: 400px;
     }
 }
 
-/* Large desktop - 1024px en hoger */
-@media (min-width: 1024px) {
+/* Large desktop - ≥1200px */
+@media (min-width: 1200px) {
     body {
         background-color: #ffffff;
         color: #000;
     }
+
     .navigation ul li {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
         border-color: #000;
+    }
+
+    .main-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+        margin: 3rem 0;
+    }
+
+    .image-container {
+        background-image: url('../img/profile1.jpg');
+        max-width: 450px;
     }
 }
